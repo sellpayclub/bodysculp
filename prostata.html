@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    try {
+      const desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+      if (desc && !desc.set) {
+        let originalFetch = window.fetch;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return originalFetch; },
+          set: function(val) { originalFetch = val; },
+          configurable: true,
+          enumerable: true
+        });
+      }
+    } catch (e) {
+      console.warn("Could not patch window.fetch", e);
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo Desinflamação da Próstata</title>
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Estilos personalizados para inputs checkbox customizados */
+    .checkbox-active {
+      border-color: #2563eb !important;
+      background-color: #eff6ff !important;
+    }
+    .check-indicator-active {
+      background-color: #2563eb !important;
+      border-color: #2563eb !important;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased min-h-screen flex flex-col">
+
+  <!-- CONTAINER CENTRALIZADO (Para simular o app/mobile-first luxuoso de 100% de aproveitamento de cliques) -->
+  <div id="content-container" class="max-w-lg mx-auto w-full min-h-screen bg-gray-50 flex flex-col flex-1 shadow-md bg-white">
+    
+    <!-- HEADER FIXO (Logo e barra de progresso do Quiz) -->
+    <header id="quiz-header" class="bg-white px-4 py-4 shadow-sm sticky top-0 z-20 flex flex-col gap-4 border-b border-gray-200">
+      <div class="flex justify-center w-full pb-1">
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-WhBTM-logo-protocolo-desinflamacao-da-prostata.webp" class="h-14 sm:h-16 object-contain" alt="Logo" />
+      </div>
+      <div id="progress-bar-container" class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden shadow-inner relative">
+        <div id="progress-bar-fill" class="bg-blue-600 h-full transition-all duration-500 ease-out absolute left-0 top-0 bottom-0" style="width: 0%;"></div>
+      </div>
+    </header>
+
+    <!-- VIEW 1: INTRO (LANDING) -->
+    <div id="view-intro" class="w-full p-4 flex flex-col justify-center items-center flex-1 py-10">
+      <div class="w-full space-y-6 text-center pb-8">
+        <p class="bg-red-600 text-white font-black px-4 py-1 inline-block rounded-md text-sm uppercase tracking-wider mb-2">URGENTE</p>
+        <h1 class="text-2xl font-black text-gray-900 leading-tight">
+          TRUQUE NATURAL CASEIRO DE 14 DIAS ESTÁ DESINCHANDO A PRÓSTATA E ELIMINANDO A HPB NATURALMENTE!
+        </h1>
+        <p class="text-gray-700 font-medium">
+          Homens estão voltando a urinar com força, dormindo a noite inteira sem levantar e recuperando o desempenho na cama. Tudo graças a uma simples receita natural que elimina o parasita escondido por trás do aumento da próstata.
+        </p>
+        
+        <div class="rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white">
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-dC0Db-prostata-normal-x-prostata-aumentada.webp" alt="Prostata normal x aumentada" class="w-full h-auto object-contain" />
+        </div>
+
+        <button 
+          onclick="startQuiz()"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-xl py-5 rounded-xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-[0.98] uppercase mt-4 cursor-pointer"
+        >
+          QUERO APRENDER TAMBÉM !
+        </button>
+      </div>
+
+      <div class="w-full text-center px-4 pb-4 mt-8 space-y-4">
+        <p class="text-[10px] sm:text-xs text-gray-400 font-medium leading-relaxed">
+          Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença. Os resultados podem variar de pessoa para pessoa. Este site não é afiliado ao Facebook, Google, YouTube ou a qualquer de suas entidades. Depois que você sair do Facebook, Google ou YouTube, a responsabilidade não é deles e sim do nosso site.
+        </p>
+        <p class="text-[10px] sm:text-xs text-gray-400 font-medium leading-relaxed">
+          Gp Negocios Digitais LTDA - CNPJ: 40.170.238/0001-80 <br />
+          Rua Jose Maria Barbosa 31, Jardim Portal da Colina, Sorocaba SP, 18047-380
+        </p>
+      </div>
+    </div>
+
+    <!-- VIEW 2: QUIZ STEPS (23 ETAPAS) -->
+    <div id="view-quiz" class="hidden p-5 pt-8 pb-24 flex-1">
+      
+      <!-- ETAPA 0 -->
+      <div id="step-0" class="quiz-step space-y-4">
+        <h2 class="text-xl font-bold text-gray-900 leading-tight mb-2">Quantos destes sintomas você está sentindo?</h2>
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-a8rWQ-sente-sintomas-mais-de-2-meses-em-prostata.webp" class="w-full rounded-xl shadow-md mb-4" alt="Sintomas" />
+        <div class="space-y-3 pt-2">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span class="text-lg leading-tight">Sinto mais de 1 😓</span>
+            <span class="text-gray-400 shrink-0">&raquo;</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span class="text-lg leading-tight">Sinto 2 ou mais 😬</span>
+            <span class="text-gray-400 shrink-0">&raquo;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div id="step-1" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight font-black">Qual é a sua idade?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Com o avanço da idade, a próstata tende a crescer, um processo natural que leva à Hiperplasia Prostática Benigna (HPB). Assim como a menopausa marca a queda da fertilidade feminina, o aumento da próstata pode comprometer a função urinária e sexual masculina, mesmo em homens que nunca tiveram problemas de saúde antes.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <button onclick="nextStep()" class="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-4 rounded-2xl font-bold text-gray-700 transition shadow-sm flex flex-col items-center gap-3 active:scale-[0.98] w-full">
+            <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-c9Rjw-homem-ate-40-anos.webp" alt="Até 40" class="w-full h-auto rounded-xl object-contain aspect-square border border-gray-100" />
+            <span class="text-[15px] text-center leading-tight">Até 40 anos</span>
+          </button>
+          <button onclick="nextStep()" class="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-4 rounded-2xl font-bold text-gray-700 transition shadow-sm flex flex-col items-center gap-3 active:scale-[0.98] w-full">
+            <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-wTDY1-homem-de-41-a-50-anos.webp" alt="41-50" class="w-full h-auto rounded-xl object-contain aspect-square border border-gray-100" />
+            <span class="text-[15px] text-center leading-tight">41 anos a 50 anos</span>
+          </button>
+          <button onclick="nextStep()" class="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-4 rounded-2xl font-bold text-gray-700 transition shadow-sm flex flex-col items-center gap-3 active:scale-[0.98] w-full">
+            <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-o81Od-homem-de-51-a-60-anos.webp" alt="51-60" class="w-full h-auto rounded-xl object-contain aspect-square border border-gray-100" />
+            <span class="text-[15px] text-center leading-tight">51 anos a 60 anos</span>
+          </button>
+          <button onclick="nextStep()" class="bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-4 rounded-2xl font-bold text-gray-700 transition shadow-sm flex flex-col items-center gap-3 active:scale-[0.98] w-full">
+            <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-QuVCf-homem-com-mais-de-60-anos.webp" alt="Mais de 61" class="w-full h-auto rounded-xl object-contain aspect-square border border-gray-100" />
+            <span class="text-[15px] text-center leading-tight">Mais de 61 anos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div id="step-2" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você já foi diagnosticado com HPB (Hiperplasia Prostática Benigna)?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Por favor, responda com atenção — essa informação é essencial para a nossa análise.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>🙏 Sim, já fui diagnosticado.</span>
+            <span class="text-gray-400 shrink-0">&raquo;</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>⌛ Não, mas estou desconfiado.</span>
+            <span class="text-gray-400 shrink-0">&raquo;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div id="step-3" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Há quanto tempo você recebeu o diagnóstico de HPB?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Essa informação é essencial para uma análise mais precisa da sua condição.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>✅ Menos de 6 meses</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>✅ Entre 6 meses e 1 ano</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>✅ Entre 1 e 3 anos</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>✅ Mais de 3 anos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 4 (Checkbox) -->
+      <div id="step-4" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você tem alguma dessas condições?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Elas podem influenciar diretamente o crescimento da sua próstata. Selecione uma ou mais:</p>
+        <div class="space-y-3 mb-6">
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Tenho obesidade ou sobrepeso</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Tenho diabetes tipo 2</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Tenho distúrbios hormonais</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Tenho pressão alta (hipertensão)</span>
+          </div>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>🙌 Não tenho nenhuma dessas condições</span>
+            <span class="text-gray-400 shrink-0">&raquo;</span>
+          </button>
+        </div>
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 5 -->
+      <div id="step-5" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você já Desparasitou de alguma maneira?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Utilizando remédios ou formas naturais.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>😐 Não, eu nunca desparasitei.</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>😁 Sim, eu já desparasitei.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 6 (Warning) -->
+      <div id="step-6" class="quiz-step hidden space-y-4">
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+          <p class="font-bold text-red-800 text-lg">CUIDADO!</p>
+          <p class="text-red-700 mt-2">Se você nunca fez uma Desparasitação Natural, cuidado: os vermes podem se multiplicar no seu corpo e alcançar órgãos vitais como próstata, cérebro, coração e pulmões. Não ignore esse risco, é essencial desparasitar pelo menos uma vez ao ano!</p>
+        </div>
+        <p class="font-bold text-gray-800 mb-2 border-b pb-2">Veja essa Notícia do G1 👇</p>
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-6NKlc-homem-de-42-anos-descobre-parasita.webp" class="w-full rounded-xl shadow-md mb-6" alt="Noticia G1" />
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 7 -->
+      <div id="step-7" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você tem ciência que a falta de cuidados com esse assunto pode piorar sua próstata e deixar sequelas que podem ser irreversíveis?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Por favor, seja sincero.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>😔 Sim, eu sei da gravidade que é ter parasitas habitando o meu intestino</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>😰 Não sabia da gravidade, mas quero cuidar.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 8 -->
+      <div id="step-8" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você concorda comigo que na maioria das vezes o aumento da próstata não é nossa culpa?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Somos taxados de machistas, ignorantes e desleixados, mas isso se deve ao nosso organismo estar inflamado por conta de parasitas intestinais. Por favor, seja sincero, quero ajudar!</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>Eu concordo sim!</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>Concordo em partes.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 9 (Diet Checkbox) -->
+      <div id="step-9" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você comeu algum desses alimentos nos últimos 3 meses?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Responda com atenção estamos avaliando cada resposta.</p>
+        <div class="space-y-3 mb-6">
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Queijo</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Álcool</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Batata Frita</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Refrigerante</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Salsicha</span>
+          </div>
+        </div>
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 10 (Symptoms Checkbox) -->
+      <div id="step-10" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Dentro dos sintomas listados abaixo, quais mais te incomodam?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Selecione um ou mais.</p>
+        <div class="space-y-3 mb-6">
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">JATO FRACO DE URINA</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">VONTADE FREQUENTE DE URINAR</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">DIFICULDADE PARA COMEÇAR A URINAR</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">SENSAÇÃO DE BEXIGA CHEIA APÓS URINAR</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">URGÊNCIA PARA URINAR</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">GOTEJAMENTO NO FINAL DO XIXI</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-bold text-gray-800 text-base leading-tight mt-0.5">EJACULAÇÃO PRECOCE</span>
+          </div>
+        </div>
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 11 -->
+      <div id="step-11" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Há quanto tempo você convive com esses sintomas?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Essa informação é essencial para entendermos melhor a sua situação atual.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <div class="font-bold">Menos de 6 meses</div>
+            <div class="text-xs font-normal text-gray-500">Está começando agora, mas já tá me deixando preocupado.</div>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <div class="font-bold">Entre 6 meses e 1 ano</div>
+            <div class="text-xs font-normal text-gray-500">Já faz um tempo... e percebo que tá piorando aos poucos.</div>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <div class="font-bold">Entre 1 e 3 anos</div>
+            <div class="text-xs font-normal text-gray-500">Convivo com isso há anos e sinceramente, cansei de aceitar como "normal".</div>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <div class="font-bold">Mais de 3 anos</div>
+            <div class="text-xs font-normal text-gray-500">Já faz tanto tempo que convivo com isso... sinceramente, nem lembro mais como era viver sem esses sintomas.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 12 -->
+      <div id="step-12" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Os sintomas que você selecionou tem atrapalhado a sua vida?</h2>
+        <div class="space-y-3 mt-6">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>✅ Sim, demais!</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😅 Sim, está tão normal na minha vida que eu já até acostumei.</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>🧐 Se você não tivesse falado, eu nem saberia que poderia ser parasitose.</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😌 Não me atrapalha não.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 13 -->
+      <div id="step-13" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você sabe qual é o volume atual da sua próstata?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Responder à pergunta abaixo pode ajudar a identificar sinais precoces de crescimento anormal.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😀 Menos de 30 cm³ (volume normal)</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>🤨 Entre 30 e 40 cm³ (volume levemente aumentado)</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😮 Entre 40 e 60 cm³ (volume moderadamente aumentado)</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😥 Acima de 60 cm³ (volume bastante aumentado)</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>🥵 Não sei / Nunca fiz exame de volume prostático</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 14 (Audio & Testimonial) -->
+      <div id="step-14" class="quiz-step hidden space-y-6">
+        <div class="bg-yellow-50 border-2 border-yellow-400 p-5 rounded-2xl">
+          <h3 class="font-black text-xl text-yellow-800 flex items-center gap-2 mb-2">⚠️ Os Resultados Não Mentem:</h3>
+          <p class="font-bold text-yellow-900">Seus Sintomas estão indicando Algo Muito Perigoso – Ouça Com Atenção!</p>
+          <p class="text-yellow-800 text-sm mt-2">Escute essa rápida explicação 👇<br/>Caso o áudio não inicie, basta clicar nele!</p>
+        </div>
+        
+        <div class="bg-white p-5 rounded-2xl shadow border-2 border-blue-100 mt-2">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://media.atomicatpages.net/u/vAo8jNbX4JSDmVh7tfSDFPK8uts1/Pictures/nhbbPb0481930.png" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-blue-50" alt="Ana Lima" />
+            <div>
+              <p class="font-bold text-gray-900 text-lg leading-tight">Ana Lima</p>
+              <p class="text-sm text-blue-600 font-semibold">Especialista</p>
+            </div>
+          </div>
+          <audio controls controlsList="nodownload" class="w-full rounded-full bg-gray-50">
+            <source src="https://media.inlead.cloud/uploads/23849/2025-06-07/06qf1-audio-1-mari-prostata-primeiro.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="pt-6 border-t border-gray-200">
+          <h3 class="font-black text-xl text-blue-800 mb-4 text-center">🔔 Veja este caso</h3>
+          <p class="text-center text-sm font-bold bg-blue-100 text-blue-800 py-2 rounded-lg mb-4">1 semana após iniciar a desparasitação</p>
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-qwUmR-1-semana-apos-iniciar-a-desparasitacao.webp" class="w-full rounded-2xl shadow-md border mb-4" alt="Resultado" />
+          
+          <div class="bg-gray-50 p-4 rounded-xl italic text-gray-700 text-sm border">
+            <p class="font-bold text-gray-900 not-italic mb-2 border-b pb-2">Roberto Limeira <span className="font-normal text-gray-500 text-xs ml-2">— Porto Alegre, RS</span></p>
+            "Eu vivia indo ao banheiro, principalmente à noite. A bexiga nunca esvaziava direito e o jato era fraco. Achei que era normal da idade, mas descobri que meu corpo estava inflamado por parasitas. Fiz a desparasitação e, em menos de 2 semanas, tudo mudou. Urino normalmente, durmo a noite toda e até meu desempenho voltou. Me sinto outro homem."
+          </div>
+        </div>
+
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 15 -->
+      <div id="step-15" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você teria interesse em receber um protocolo personalizado para Desparasitação em 14 dias?</h2>
+        <div class="space-y-3 mt-6">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>✅ Sim, Eu quero demais!</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😃 Tenho interesse, mas quero tirar dúvidas.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 16 (Medicines Checkbox) -->
+      <div id="step-16" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você está utilizando algum desses medicamentos atualmente?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Responda com atenção, selecione um ou mais;</p>
+        <div class="space-y-3 mb-6">
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Finasterida</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Cloridrato de Tansulosina</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Dutasterida</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Combinações de Dutasterida + Tansulosina</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Mesilato de Doxazosina</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex items-start gap-4 p-5 border-2 border-gray-200 rounded-2xl bg-white cursor-pointer hover:border-blue-500 transition-all">
+            <div class="check-box-indicator w-6 h-6 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-sm bg-white shrink-0 mt-0.5"></div>
+            <span class="font-semibold text-gray-700 text-lg leading-tight">Tadalafila</span>
+          </div>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 p-5 rounded-2xl font-semibold text-gray-700 transition-all text-left flex items-center justify-between shadow-sm active:scale-[0.98]">
+            <span>Não uso nada no momento</span>
+          </button>
+        </div>
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 17 -->
+      <div id="step-17" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Com que frequência você realiza monitoramento do tamanho da sua Próstata?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Responda com atenção, por favor.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>⚠ A CADA 6 MESES</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>✅ A CADA 12 MESES</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😥 A CADA 2 ANOS</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>🩸 FIZ 1 ÚNICA VEZ</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😐 AINDA NÃO FAÇO</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 18 -->
+      <div id="step-18" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você concorda comigo que a nossa saúde é o nosso bem mais importante?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Sem ela não somos nada.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>✅ Concordo!</span>
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98]">
+            <span>😕 Não concordo.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 19 -->
+      <div id="step-19" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Como está o seu desempenho sexual atualmente?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Por favor, responda com sinceridade — essa informação é importante para a nossa análise.</p>
+        <div class="space-y-3">
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98] text-[15px]">
+            Minha vida sexual está como sempre foi, sem queixas.
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98] text-[15px]">
+            Sinto que não tenho o mesmo desempenho de antes, mas ainda consigo manter relações.
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98] text-[15px]">
+            Consigo iniciar, mas perco a firmeza com facilidade.
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98] text-[15px]">
+            Quase sempre tenho dificuldade para ter ou manter ereção.
+          </button>
+          <button onclick="nextStep()" class="w-full bg-white border-2 border-gray-200 hover:border-blue-500 p-5 rounded-2xl text-left shadow-sm active:scale-[0.98] text-[15px]">
+            Por escolha ou outros fatores, não estou mantendo relações atualmente.
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 20 (Commitment & Chat photos) -->
+      <div id="step-20" class="quiz-step hidden space-y-6">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Você se compromete em seguir nosso Protocolo de 14 Dias em Casa?</h2>
+        <p class="text-gray-600 font-bold">Vou te ajudar em tudo o que precisar.</p>
+        
+        <div class="flex gap-4 overflow-x-auto pb-4 snap-x py-2 px-1">
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-G62r1-conversa-com-rafael.webp" class="h-[400px] w-auto rounded-xl shadow-md snap-center border" alt="Conversa 1" />
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-9TQQS-conversa-com-anderson.webp" class="h-[400px] w-auto rounded-xl shadow-md snap-center border" alt="Conversa 2" />
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-GrNUN-conversa-com-marcos.webp" class="h-[400px] w-auto rounded-xl shadow-md snap-center border" alt="Conversa 3" />
+        </div>
+
+        <div class="space-y-3 mt-6">
+          <button onclick="nextStep()" class="w-full bg-blue-600 text-white font-black p-4 rounded-xl flex items-center justify-center gap-3 hover:bg-blue-700 transition transform hover:scale-[1.02] shadow-[0_4px_0_0_rgba(29,78,216,1)] active:shadow-none active:translate-y-1 text-lg">
+            😍 Sim eu me Comprometo!
+          </button>
+          <button onclick="nextStep()" class="w-full bg-slate-500 text-white font-bold p-4 rounded-xl flex items-center justify-center gap-3 hover:bg-slate-600 transition shadow-[0_4px_0_0_rgba(71,85,105,1)] active:shadow-none active:translate-y-1">
+            😀 Eu vou Tentar!
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 21 (Goals Checkbox) -->
+      <div id="step-21" class="quiz-step hidden space-y-4">
+        <h2 class="text-2xl font-black text-gray-900 leading-tight mb-4 tracking-tight">Imagine que você superou a HPB e voltou a viver sem limitações. O que seria a melhor parte dessa conquista para você?</h2>
+        <p class="text-gray-600 mb-6 text-sm">Por favor, responda com atenção: Pode selecionar mais de uma opção.</p>
+        <div class="space-y-3 mb-6">
+          <div onclick="toggleStepCheckbox(this)" class="flex gap-3 p-4 border-2 border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 items-start">
+            <div class="check-box-indicator w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-xs bg-white shrink-0 mt-1"></div>
+            <span class="font-medium text-gray-700 leading-tight">Dormir a noite inteira sem precisar levantar para urinar</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex gap-3 p-4 border-2 border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 items-start">
+            <div class="check-box-indicator w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-xs bg-white shrink-0 mt-1"></div>
+            <span class="font-medium text-gray-700 leading-tight">Urinar com força, sem dor, sem pinga-pinga</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex gap-3 p-4 border-2 border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 items-start">
+            <div class="check-box-indicator w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-xs bg-white shrink-0 mt-1"></div>
+            <span class="font-medium text-gray-700 leading-tight">Recuperar minha vida sexual com firmeza e confiança</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex gap-3 p-4 border-2 border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 items-start">
+            <div class="check-box-indicator w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-xs bg-white shrink-0 mt-1"></div>
+            <span class="font-medium text-gray-700 leading-tight">Me sentir no controle da minha saúde e da minha vida</span>
+          </div>
+          <div onclick="toggleStepCheckbox(this)" class="flex gap-3 p-4 border-2 border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 items-start">
+            <div class="check-box-indicator w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center font-bold text-white text-xs bg-white shrink-0 mt-1"></div>
+            <span class="font-medium text-gray-700 leading-tight">Poder sair de casa, viajar e trabalhar sem depender do banheiro</span>
+          </div>
+        </div>
+        <button onclick="nextStep()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Continuar &raquo;</button>
+      </div>
+
+      <!-- ETAPA 22 (Audio 2 & Video embed) -->
+      <div id="step-22" class="quiz-step hidden space-y-6">
+        <div class="bg-blue-50 border-2 border-blue-200 p-5 rounded-2xl text-center">
+          <h3 class="font-black text-xl text-blue-900 mb-2">Escute o áudio abaixo: 👇</h3>
+          <p class="text-blue-800 text-sm">Caso o AUDIO não inicie, basta clicar nele!</p>
+        </div>
+        
+        <div class="bg-white p-5 rounded-2xl shadow border-2 border-blue-100 mt-2">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://media.atomicatpages.net/u/vAo8jNbX4JSDmVh7tfSDFPK8uts1/Pictures/nhbbPb0481930.png" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-blue-50" alt="Ana Lima" />
+            <div>
+              <p class="font-bold text-gray-900 text-lg leading-tight">Ana Lima</p>
+              <p class="text-sm text-blue-600 font-semibold">Especialista</p>
+            </div>
+          </div>
+          <audio controls controlsList="nodownload" class="w-full rounded-full bg-gray-50">
+            <source src="https://media.inlead.cloud/uploads/23849/2025-06-07/ra5dc-audio-2-mari-protostata.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-900 bg-black aspect-[9/16] relative max-w-sm mx-auto">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/OyyqCS0UFDw?controls=0&rel=0&modestbranding=1" 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin" 
+            allowFullScreen
+            class="absolute inset-0"
+          ></iframe>
+        </div>
+
+        <button onclick="goToDiagnostic()" class="w-full font-black text-white py-5 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-[0_6px_0_0_#1d4ed8] hover:shadow-[0_4px_0_0_#1d4ed8] uppercase tracking-wide text-lg mt-6 block">Gerar Meu Diagnóstico &raquo;</button>
+      </div>
+
+    </div>
+
+    <!-- VIEW 3: DIAGNOSTIC (LOADING & ANALYSIS) -->
+    <!-- ESTADO 1: CARREGANDO -->
+    <div id="view-diagnostic-loading" class="hidden p-6 max-w-lg mx-auto w-full min-h-screen flex items-center justify-center bg-gray-50">
+      <div class="text-center w-full space-y-8">
+        
+        <div class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-8 border-white shadow-xl flex items-center justify-center bg-blue-50">
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-dC0Db-prostata-normal-x-prostata-aumentada.webp" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply" alt="Scanner" />
+          <div class="absolute inset-0 w-full h-full animate-spin" style="background: conic-gradient(from 0deg, transparent 0%, rgba(37, 99, 235, 0.1) 80%, rgba(37, 99, 235, 0.9) 100%); pointer-events: none;"></div>
+          <!-- Scanner bar -->
+          <div class="scanner-bar absolute left-0 w-full h-1 bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,1)] z-10" style="top: 0; animation: scan 1.5s linear infinite;"></div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-800 px-4 leading-tight">Estou analisando as suas respostas e gerando o seu protocolo personalizado.</h2>
+        <p id="diagnostic-percent" class="text-5xl font-black text-blue-600">0%</p>
+        <p id="diagnostic-status-text" class="text-gray-500 font-medium bg-blue-50 py-1.5 px-4 rounded-full inline-block animate-pulse">
+          Verificando sintomas na base de dados...
+        </p>
+        
+        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden shadow-inner relative max-w-xs mx-auto">
+          <div id="diagnostic-progress-fill" class="bg-blue-600 h-full transition-all duration-100 ease-out" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTADO 2: ANÁLISE COMPLETA -->
+    <div id="view-diagnostic-report" class="hidden p-5 max-w-lg mx-auto w-full min-h-screen pt-8 pb-24 bg-gray-50">
+      <div class="space-y-8">
+        <div class="bg-green-50 text-green-700 font-bold p-3 rounded-xl border border-green-200 text-center flex items-center justify-center gap-2 mb-4">
+          <span class="text-xl">✅</span> Análise Concluída com Sucesso!
+        </div>
+
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-xaCYg-87mah-remedios.webp" alt="Remedios" class="w-full rounded-2xl shadow-xl border-4 border-white object-cover" />
+        
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+          <h2 class="text-xl font-black text-gray-900 border-l-4 border-blue-600 pl-3 mb-6">Abaixo está a análise da sua situação atual, baseada nas suas respostas.👇</h2>
+          
+          <div class="overflow-hidden divide-y divide-gray-100 bg-gray-50/50 rounded-xl border border-gray-100">
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de possuir bactérias inflamatórias</span>
+              <span class="font-black text-lg text-red-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">95%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de possuir Infecção úrinária Frequente nos próximos meses</span>
+              <span class="font-black text-lg text-red-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">80%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de possuir pedras na bexiga</span>
+              <span class="font-black text-lg text-red-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">88%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de contrair cancer de prostata</span>
+              <span class="font-black text-lg text-red-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">95%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de voltar a ir ao banheiro normalmente sem a desparasitação</span>
+              <span class="font-black text-lg text-red-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">5%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de diminuir a próstata em 80% com a desparasitação</span>
+              <span class="font-black text-lg text-green-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">100%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de eliminar parasita em 2 dias</span>
+              <span class="font-black text-lg text-green-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">95%</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors">
+              <span class="text-[13px] font-semibold text-gray-700 pr-4 leading-tight">Chances de eliminar parasitas por completo</span>
+              <span class="font-black text-lg text-green-600 bg-gray-50 px-2 py-1 rounded border border-gray-100">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+          <h3 class="font-black text-gray-800 text-lg border-b pb-3">Possível agente parasitário de acordo com os seus sintomas:</h3>
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-CtK3w-hywsc-e99378d8-98c9-4094-9718-f70202ad.webp" alt="Parasita" class="w-full rounded-xl shadow-md border border-gray-100 bg-white" />
+        </div>
+
+        <div class="bg-yellow-50 border-2 border-yellow-300 p-6 rounded-2xl space-y-3 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-200 rounded-full blur-2xl opacity-50 -mr-10 -mt-10"></div>
+          <h3 class="font-black text-xl text-yellow-900 flex items-center gap-2 relative z-10">⚠️ Atenção !</h3>
+          <p class="text-yellow-800 font-medium relative z-10 text-sm leading-relaxed">No nosso Protocolo, você pode ficar tranquilo! Nenhum verme ou parasita sairá vivo de forma incômoda. Eles são eliminados já mortos e desmanchados, quase imperceptíveis. ☺️</p>
+          <p class="text-yellow-800 font-medium relative z-10 text-sm leading-relaxed">A Desparasitação ocorrerá primeiramente através de um chá de tomate com um ingrediente secreto facilmente encontrado nos mercados e pouco utilizado.</p>
+        </div>
+
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/lg-14tBB-tr5iv-tomate-1504283166629-v2-1920x1276.webp" alt="Tomate" class="w-full rounded-2xl shadow-xl border-4 border-white object-cover" />
+
+        <button 
+          onclick="goToVSL()"
+          class="w-full bg-green-500 hover:bg-green-600 text-white font-black text-xl py-5 rounded-2xl shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_4px_0_0_#16a34a] hover:translate-y-[2px] active:scale-[0.98] active:translate-y-[6px] active:shadow-none transition-all mt-8 uppercase tracking-wide cursor-pointer"
+        >
+          Gerar Protocolo de Tratamento! ✅
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 4: VSL COMPLETA (OFERTA) -->
+    <div id="view-vsl" class="hidden bg-gray-50 min-h-screen pt-6 pb-24 text-gray-900 font-sans">
+      <div class="max-w-lg mx-auto px-4 space-y-8">
+        
+        <div class="bg-green-50 text-green-700 font-black p-4 rounded-2xl border-2 border-green-200 text-center flex items-center justify-center gap-3 mb-6 shadow-sm">
+          <span class="text-2xl animate-bounce">🤩</span> 
+          <span class="text-lg tracking-tight uppercase">Protocolo Gerado com SUCESSO!</span>
+        </div>
+
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/lg-0C0tE-o-seu-protocolo-exclusivo-esta-pronto.webp" alt="Protocolo Pronto" class="w-full rounded-2xl shadow-xl border-4 border-white mb-6 object-cover" />
+
+        <h1 class="text-2xl sm:text-3xl font-black text-center text-gray-900 leading-tight tracking-tight">
+          Desinche a próstata em <span class="text-green-600">14 dias</span> com esta bebida caseira feita com apenas 2 ingredientes naturais!
+        </h1>
+        
+        <p class="text-gray-700 font-medium text-center text-lg leading-relaxed">
+          A preparação revelada por especialistas em saúde masculina, com as principais ervas anti-inflamatórias e cuidados que ajudam a reduzir o volume da próstata e melhorar a função urinária e sexual — sem remédios, sem cirurgia, e com resultados visíveis mesmo após os 40 anos…
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <div class="space-y-3 text-center">
+            <span class="bg-red-100 text-red-700 font-black px-3 py-1.5 rounded-lg text-sm uppercase tracking-wide block">Antes</span>
+            <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/md-mrjBS-antes.webp" class="w-full rounded-2xl border-4 border-red-100 shadow-md object-cover aspect-square" alt="Antes" />
+          </div>
+          <div class="space-y-3 text-center">
+             <span class="bg-green-100 text-green-700 font-black px-3 py-1.5 rounded-lg text-sm uppercase tracking-wide block">Depois</span>
+             <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/md-5HcEO-depois.webp" class="w-full rounded-2xl border-4 border-green-100 shadow-md object-cover aspect-square" alt="Depois" />
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-4 text-[15px] bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+          <p><strong class="text-red-600 font-black">Este é você sendo afetado pelos parasitas:</strong> cada dia mais difícil para urinar e perdendo, aos poucos, seu desempenho sexual.</p>
+          <p><strong class="text-green-600 font-black">Esse é você livre da HPB:</strong> próstata controlada, noites bem dormidas, sem pinga-pinga e com o desempenho sexual de quando tinha 25 anos.</p>
+        </div>
+
+        <div class="bg-blue-50 border-2 border-blue-200 p-6 rounded-2xl mt-8 shadow-inner">
+          <h3 class="font-black text-blue-900 text-center mb-6 text-lg leading-tight">Escute o Áudio. Irei te explicar como funciona o Protocolo desinflamação da Próstata. 👇</h3>
+          <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+             <div class="flex items-center gap-4 mb-4">
+               <img src="https://media.atomicatpages.net/u/vAo8jNbX4JSDmVh7tfSDFPK8uts1/Pictures/nhbbPb0481930.png" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-blue-50" alt="Ana Lima" />
+               <div>
+                 <p class="font-bold text-gray-900 text-lg leading-tight">Ana Lima</p>
+                 <p class="text-sm text-blue-600 font-semibold">Especialista</p>
+               </div>
+             </div>
+             <audio id="vsl-audio" controls controlsList="nodownload" class="w-full rounded-full bg-gray-50">
+               <source src="https://media.inlead.cloud/uploads/23849/2025-06-07/ra5dc-audio-2-mari-protostata.mp3" type="audio/mpeg" />
+             </audio>
+          </div>
+        </div>
+
+        <div class="bg-yellow-50 border-x-4 border-yellow-400 p-6 rounded-r-2xl space-y-4 shadow-sm">
+          <h3 class="font-black text-xl text-yellow-900 flex items-center gap-2"><span class="text-2xl">⚠️</span> Atenção</h3>
+          <p class="font-semibold text-yellow-800">Este protocolo foi cuidadosamente desenvolvido para homens que sofrem com a próstata aumentada e fariam de tudo para recuperar o controle da urina, dormir melhor e se sentir confiantes novamente.</p>
+          <ul class="space-y-3 font-medium text-yellow-800 pt-2">
+            <li class="flex gap-3"><span class="text-green-600 shrink-0 mt-0.5">✅</span> <span>Então, se você convive with sintomas como jato fraco, vontade frequente de urinar ou sensação de bexiga cheia...</span></li>
+            <li class="flex gap-3"><span class="text-green-600 shrink-0 mt-0.5">✅</span> <span>Se já não dorme mais uma noite inteira por causa das idas ao banheiro...</span></li>
+            <li class="flex gap-3"><span class="text-green-600 shrink-0 mt-0.5">✅</span> <span>Ou se sente que seu desempenho sexual não é mais o mesmo — e os médicos dizem que “é normal para a sua idade”...</span></li>
+          </ul>
+          <p class="text-[15px] font-black text-yellow-900 pt-4 bg-yellow-100 p-4 rounded-xl">E você não aguenta mais viver limitado, com medo de depender de fraldas, sondas ou cirurgia… Então o protocolo natural de 14 dias foi feito pra você.</p>
+        </div>
+
+        <div class="flex justify-center py-6 w-full">
+          <img src="https://media.inlead.cloud/uploads/23849/2025-10-23/md-WhBTM-logo-protocolo-desinflamacao-da-prostata.webp" alt="Logo" class="w-full max-w-[280px] sm:max-w-[320px] h-auto object-contain drop-shadow-sm px-4" />
+        </div>
+
+        <!-- TABELA DE VALOR / BENEFÍCIOS -->
+        <div class="bg-white rounded-3xl p-6 shadow-xl border-4 border-gray-100">
+          <ul class="space-y-4 text-gray-700 text-[15px] mb-8 font-medium">
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Preparação para desparasitação</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$37,90</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Desparasitação completa</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$57,00</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Acompanhamento Individual</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$97,00</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Guia alimentar contra parasitas</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$27,00</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Tira dúvidas com a equipe</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$29,90</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Manutenção anual do protocolo</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$49,99</span>
+             </li>
+             <li class="flex justify-between items-center border-b border-gray-100 pb-3">
+               <span class="flex items-center gap-2"><span class="text-green-500 font-bold shrink-0">✅</span> <span>Receita para desinflamação em 14 Dias</span></span> 
+               <span class="line-through text-gray-400 shrink-0 ml-2">R$97,00</span>
+             </li>
+             <li class="flex items-center justify-between pt-4 mt-2">
+                <span class="text-lg font-black text-gray-600">Valor total:</span> 
+                <span class="line-through text-lg font-bold text-gray-400">R$395,00</span>
+             </li>
+          </ul>
+
+          <div class="text-center space-y-1 mb-8 bg-green-50 py-4 rounded-2xl border border-green-100">
+            <p class="text-green-800 font-black uppercase tracking-widest text-sm">Por apenas</p>
+            <p class="text-6xl font-black text-green-600 drop-shadow-sm">R$ 37,90</p>
+          </div>
+
+          <!-- BOTÃO COMPRAR OBRIGATÓRIO LINK COMPRA -->
+          <a href="{{LINK_COMPRA}}" id="cta-vsl-button" class="block w-full bg-green-500 hover:bg-green-600 text-white font-black text-xl py-5 rounded-2xl shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_4px_0_0_#16a34a] hover:translate-y-[2px] active:scale-[0.98] active:shadow-none active:translate-y-[6px] transition-all text-center uppercase tracking-wide cursor-pointer">
+            Acessar meu Protocolo Agora! ✅
+          </a>
+
+          <div class="flex gap-4 mt-8 text-xs text-gray-600 justify-center bg-gray-50 py-4 rounded-xl">
+             <div class="flex flex-col items-center gap-1.5 text-center flex-1">
+               <span class="text-green-500 text-2xl drop-shadow-sm">✅</span>
+               <strong class="text-sm">Pagamento Único</strong>
+               <span>Sem mensalidades.</span>
+             </div>
+             <div class="flex flex-col items-center gap-1.5 text-center flex-1">
+               <span class="text-green-500 text-2xl drop-shadow-sm">✅</span>
+               <strong class="text-sm">Acesso Imediato</strong>
+               <span>Após o pagamento.</span>
+             </div>
+          </div>
+        </div>
+
+        <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/lg-RYvNF-teste-seguro-180-dias-garantia.webp" class="w-full mt-8 rounded-2xl shadow-md border-4 border-white" alt="Garantia" />
+
+        <div class="pt-12">
+           <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-900 bg-black aspect-[16/9] relative mb-10 w-full mx-auto">
+             <iframe 
+               width="100%" 
+               height="100%" 
+               src="https://www.youtube.com/embed/xXA8mJer56k?controls=1&rel=0&modestbranding=1" 
+               title="Depoimento player" 
+               frameBorder="0" 
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+               referrerPolicy="strict-origin-when-cross-origin" 
+               allowFullScreen
+               class="absolute inset-0"
+             ></iframe>
+           </div>
+
+           <h2 class="text-2xl font-black text-center text-blue-900 mb-8 leading-tight px-4">Nas primeiras semanas seguindo nosso protocolo, você vai…</h2>
+           
+           <ul class="space-y-4 mb-10">
+             <li class="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-blue-300 transition-colors">
+               <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-inner font-black text-xl">1</div>
+               <p class="text-gray-800 font-bold leading-tight">Sentir a urina fluir com mais facilidade e menos esforço.</p>
+             </li>
+             <li class="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-blue-300 transition-colors">
+               <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-inner font-black text-xl">2</div>
+               <p class="text-gray-800 font-bold leading-tight">Dormir melhor, sem precisar levantar várias vezes durante a noite.</p>
+             </li>
+             <li class="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-blue-300 transition-colors">
+               <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-inner font-black text-xl">3</div>
+               <p class="text-gray-800 font-bold leading-tight">Perceber o retorno gradual da libido e da firmeza nas relações.</p>
+             </li>
+           </ul>
+
+           <div class="bg-gradient-to-b from-green-500 to-green-600 p-8 rounded-3xl shadow-2xl text-white text-center mb-10 border-4 border-green-400">
+             <p class="font-black text-2xl tracking-widest uppercase mb-1 drop-shadow">TESTE 180 DIAS</p>
+             <p class="text-sm font-bold opacity-90 mb-6 tracking-widest uppercase">sem compromisso</p>
+             <div class="bg-black/20 p-6 rounded-2xl mb-6">
+                <p class="font-medium opacity-90 mb-1 uppercase tracking-widest text-sm">por apenas 5x de</p>
+                <p class="text-6xl font-black drop-shadow-lg">R$ 8,27</p>
+             </div>
+             <a href="{{LINK_COMPRA}}" class="inline-block w-full bg-white text-green-700 font-black text-xl py-5 rounded-2xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide text-center">
+               Acessar meu Protocolo Agora! ✅
+             </a>
+           </div>
+
+           <!-- TESTEMUNHOS -->
+           <div class="space-y-6">
+             <div class="bg-white p-6 rounded-3xl shadow-sm border-2 border-gray-100">
+               <div class="flex gap-4 items-center mb-4">
+                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Fernando" class="w-16 h-16 rounded-full object-cover shadow-sm border-2 border-gray-100" />
+                 <div>
+                   <p class="font-black text-gray-900 text-lg">Fernando Martins</p>
+                   <p class="text-sm text-gray-500 font-medium">Blumenau, SC</p>
+                 </div>
+               </div>
+               <p class="text-gray-700 text-[15px] italic leading-relaxed">"Minha próstata estava com 42 cm e eu nem sabia que isso era considerado grande. Ia ao banheiro toda hora, o jato era fraco e eu acordava 3 vezes por noite. Após seguir o protocolo, refiz o exame e meu volume caiu para 28 cm³. Hoje urino com força, durmo direto e até minha energia voltou."</p>
+             </div>
+
+             <div class="bg-white p-6 rounded-3xl shadow-sm border-2 border-gray-100">
+               <div class="flex gap-4 items-center mb-4">
+                 <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Diego" class="w-16 h-16 rounded-full object-cover shadow-sm border-2 border-gray-100" />
+                 <div>
+                   <p class="font-black text-gray-900 text-lg">Diego Ramalho</p>
+                   <p class="text-sm text-gray-500 font-medium">São Paulo, RJ</p>
+                 </div>
+               </div>
+               <p class="text-gray-700 text-[15px] italic leading-relaxed">"Minha próstata media 38 cm³ e os sintomas eram horríveis: jato fraco, vontade constante de urinar e sensação de bexiga cheia. Hoje meu exame mostra 26 cm³. Durmo a noite inteira sem levantar e até minha autoestima melhorou."</p>
+             </div>
+
+             <div class="bg-white p-6 rounded-3xl shadow-sm border-2 border-gray-100">
+               <div class="flex gap-4 items-center mb-4">
+                 <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Fernanda" class="w-16 h-16 rounded-full object-cover shadow-sm border-2 border-gray-100" />
+                 <div>
+                   <p class="font-black text-gray-900 text-lg">Fernanda Silva</p>
+                   <p class="text-sm text-gray-500 font-medium">Natal, RN</p>
+                 </div>
+               </div>
+               <p class="text-gray-700 text-[15px] italic leading-relaxed">"Meu marido passou anos sofrendo calado. Ele levantava várias vezes à noite, ficava irritado, cansado, e evitava até os momentos a dois. Eu via o quanto aquilo mexia com a autoestima dele, mas ele nunca falava muito sobre. Quando ele começou o protocolo, confesso que fiquei com o pé atrás... mas em poucos dias vi meu marido voltar a sorrir, dormir melhor e recuperar a confiança. Hoje ele mesmo diz que se sente mais homem, mais leve e com energia de novo. E eu? Me sinto casada com o homem de antes — ou até melhor."</p>
+             </div>
+           </div>
+
+           <!-- GUIA DE BRINDE -->
+           <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white p-8 rounded-3xl shadow-2xl mt-10 space-y-6 relative overflow-hidden border-4 border-blue-800">
+             <div class="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-blue-500 blur-3xl opacity-30 rounded-full" />
+             <h3 class="text-2xl font-black relative z-10 leading-tight">Você também vai receber, de forma gratuita, o “Guia Inabalável da Virilidade Masculina”</h3>
+             <ul class="space-y-4 text-[15px] opacity-90 relative z-10">
+               <li class="flex gap-3"><span class="text-blue-400 mt-1 shrink-0">✦</span> <span>Os principais inimigos ocultos na sua rotina que estão roubando sua libido e sua potência sexual sem que você perceba.</span></li>
+               <li class="flex gap-3"><span class="text-blue-400 mt-1 shrink-0">✦</span> <span>Hábitos simples e naturais que ajudam a restaurar o desejo e a firmeza nas relações.</span></li>
+               <li class="flex gap-3"><span class="text-blue-400 mt-1 shrink-0">✦</span> <span>Como identificar sinais silenciosos de desequilíbrio hormonal, mesmo sem exames ou consultas frequentes.</span></li>
+               <li class="flex gap-3"><span class="text-blue-400 mt-1 shrink-0">✦</span> <span>Estratégias naturais para aumentar a testosterona, reduzir o estresse e recuperar sua confiança como homem.</span></li>
+             </ul>
+             <a href="{{LINK_COMPRA}}" class="block mt-6 relative z-10 w-full bg-green-500 hover:bg-green-600 text-white font-black py-5 rounded-2xl shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_4px_0_0_#16a34a] hover:translate-y-[2px] active:scale-[0.98] active:shadow-none active:translate-y-[6px] transition-all text-center uppercase tracking-wide">Acessar meu Protocolo Agora! ✅</a>
+           </div>
+
+           <!-- OUTRAS SEÇÕES -->
+           <div class="bg-white p-8 rounded-3xl shadow-xl border-2 border-gray-100 mt-10 text-center space-y-6">
+             <p class="font-black text-gray-900 text-lg leading-tight uppercase tracking-tight">Você também vai receber um presente surpresa, totalmente gratuito, ao entrar hoje para o grupo de homens que decidiram cuidar da próstata ainda neste ano!</p>
+             <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/lg-ADJ0F-presente-especial.webp" class="w-full rounded-2xl shadow-inner border border-gray-50 object-cover" alt="Presente" />
+             <a href="{{LINK_COMPRA}}" class="block w-full bg-green-500 hover:bg-green-600 text-white font-black text-xl py-5 rounded-2xl shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_4px_0_0_#16a34a] hover:translate-y-[2px] active:scale-[0.98] active:shadow-none active:translate-y-[6px] transition-all text-center uppercase tracking-wide">
+               Acessar meu Protocolo Agora! ✅
+             </a>
+           </div>
+
+           <img src="https://media.inlead.cloud/uploads/23849/2025-10-24/lg-ZSHq9-seu-risco-e-zero.webp" class="w-full mt-10 rounded-2xl shadow-md border-4 border-white" alt="Risco Zero" />
+
+           <div class="bg-gray-100 p-8 rounded-3xl mt-10 space-y-6 text-center border-2 border-gray-200">
+             <h3 class="font-black text-2xl text-gray-900 leading-tight">Quantas vezes você já ouviu que é normal conviver com isso depois dos 40?</h3>
+             <div class="h-1 w-16 bg-blue-500 mx-auto rounded-full" />
+             <p class="text-gray-800 font-bold text-lg">A verdade é que o seu corpo ainda responde — ele só precisa do estímulo certo no momento certo.</p>
+             <p class="text-gray-600 font-medium leading-relaxed">🌿 Este protocolo natural já ajudou centenas de homens a reduzirem o volume da próstata, voltarem a urinar com força e recuperarem sua confiança na vida sexual.</p>
+             <p class="font-black text-blue-700 text-xl py-2 bg-blue-50 rounded-xl">✨ Não aceite que a idade defina sua qualidade de vida.</p>
+             <p class="text-gray-800 font-bold">Clique no botão abaixo e comece hoje a retomar o controle da sua saúde masculina.</p>
+             
+             <a href="{{LINK_COMPRA}}" class="block w-full mt-4 bg-green-500 hover:bg-green-600 text-white font-black text-xl py-5 rounded-2xl shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_4px_0_0_#16a34a] hover:translate-y-[2px] active:scale-[0.98] active:shadow-none active:translate-y-[6px] transition-all text-center uppercase tracking-wide">
+               Acessar meu Protocolo Agora! ✅
+             </a>
+           </div>
+
+           <!-- FAQ -->
+           <div class="mt-16 space-y-6">
+             <h2 class="text-3xl font-black text-center text-gray-900 mb-8 uppercase tracking-widest">Dúvidas Frequentes</h2>
+             
+             <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm hover:border-blue-200 transition-colors">
+               <h4 class="font-black text-gray-900 text-lg flex gap-3 items-start"><span class="text-blue-500">?</span> <span>E se eu não tiver resultados com o protocolo?</span></h4>
+               <p class="text-[15px] font-medium text-gray-600 mt-3 pl-6">Se dentro de até 180 dias você achar que não é para você, basta solicitar o reembolso e devolveremos 100% do seu dinheiro.</p>
+             </div>
+             
+             <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm hover:border-blue-200 transition-colors">
+               <h4 class="font-black text-gray-900 text-lg flex gap-3 items-start"><span class="text-blue-500">?</span> <span>O que exatamente eu vou receber ao comprar?</span></h4>
+               <p class="text-[15px] font-medium text-gray-600 mt-3 pl-6">Você receberá acesso imediato à plataforma com a receita da desparasitação, chás complementares, bônus adicionais e guia alimentar.</p>
+             </div>
+
+             <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm hover:border-blue-200 transition-colors">
+               <h4 class="font-black text-gray-900 text-lg flex gap-3 items-start"><span class="text-blue-500">?</span> <span>Este produto é um remédio ou tratamento médico?</span></h4>
+               <p class="text-[15px] font-medium text-gray-600 mt-3 pl-6">Não. É um protocolo de ingredientes 100% naturais encontrados no mercado, que atuam no combate aos parasitas e inflamações.</p>
+             </div>
+
+             <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm hover:border-blue-200 transition-colors">
+               <h4 class="font-black text-gray-900 text-lg flex gap-3 items-start"><span class="text-blue-500">?</span> <span>Em quanto tempo posso esperar resultados?</span></h4>
+               <p class="text-[15px] font-medium text-gray-600 mt-3 pl-6">Os resultados variam, mas a grande maioria dos homens relata melhoras significativas no fluxo urinário e na disposição nos primeiros 14 dias.</p>
+             </div>
+
+             <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm hover:border-blue-200 transition-colors">
+               <h4 class="font-black text-gray-900 text-lg flex gap-3 items-start"><span class="text-blue-500">?</span> <span>O protocolo funciona para qualquer pessoa?</span></h4>
+               <p class="text-[15px] font-medium text-gray-600 mt-3 pl-6">Sim, ele foi desenvolvido para ser seguro e eficaz para homens a partir dos 40 anos, de forma totalmente natural e sem contra-indicações diretas.</p>
+             </div>
+           </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LÓGICA DO FUNNEL PROSTATA -->
+  <script>
+    let currentStep = 0;
+    const totalSteps = 23;
+
+    function startQuiz() {
+      document.getElementById('view-intro').classList.add('hidden');
+      document.getElementById('view-quiz').classList.remove('hidden');
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      const progress = Math.round((currentStep / (totalSteps - 1)) * 100);
+      document.getElementById('progress-bar-fill').style.width = `${progress}%`;
+    }
+
+    function toggleStepCheckbox(div) {
+      const checkIndicator = div.querySelector('.check-box-indicator');
+      const isActive = div.classList.contains('checkbox-active');
+      
+      if (!isActive) {
+        div.classList.add('checkbox-active');
+        checkIndicator.classList.add('check-indicator-active');
+        checkIndicator.innerHTML = '✓';
+      } else {
+        div.classList.remove('checkbox-active');
+        checkIndicator.classList.remove('check-indicator-active');
+        checkIndicator.innerHTML = '';
+      }
+    }
+
+    function nextStep() {
+      // scroll to top smooth
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      const currentElement = document.getElementById(`step-${currentStep}`);
+      if (currentElement) {
+        currentElement.classList.add('hidden');
+      }
+
+      currentStep++;
+
+      if (currentStep < totalSteps) {
+        const nextElement = document.getElementById(`step-${currentStep}`);
+        if (nextElement) {
+          nextElement.classList.remove('hidden');
+        }
+        updateProgressBar();
+      } else {
+        // Encerrou todas as perguntas prévias, inicia carregamento diagnóstico
+        goToLoadingDiagnostic();
+      }
+    }
+
+    function goToLoadingDiagnostic() {
+      document.getElementById('quiz-header').classList.add('hidden');
+      document.getElementById('view-quiz').classList.add('hidden');
+      document.getElementById('view-diagnostic-loading').classList.remove('hidden');
+      
+      let progress = 0;
+      const statusTexts = [
+        "Verificando sintomas na base de dados...",
+        "Calculando chances de agentes fúngicos...",
+        "Identificando possíveis inflamações prostáticas...",
+        "Montando receita de tomate personalizada...",
+        "Construindo passo a passo de desparasitação..."
+      ];
+      
+      const statusInterval = setInterval(() => {
+        const randomStatus = statusTexts[Math.floor(Math.random() * statusTexts.length)];
+        document.getElementById('diagnostic-status-text').innerText = randomStatus;
+      }, 1500);
+
+      const progressInterval = setInterval(() => {
+        progress += 1;
+        document.getElementById('diagnostic-percent').innerText = `${progress}%`;
+        document.getElementById('diagnostic-progress-fill').style.width = `${progress}%`;
+        
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          clearInterval(statusInterval);
+          setTimeout(() => {
+            // vai para resultado do diagnóstico
+            document.getElementById('view-diagnostic-loading').classList.add('hidden');
+            document.getElementById('view-diagnostic-report').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 500);
+        }
+      }, 60); // 6 segundos loading
+    }
+
+    function goToVSL() {
+      document.getElementById('view-diagnostic-report').classList.add('hidden');
+      document.getElementById('view-vsl').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Auto-play audio se permitido pelo browser
+      const audio = document.getElementById('vsl-audio');
+      if (audio) {
+        audio.play().catch(err => console.log('Autoplay bloqueado pelo navegador, aguardando clique.'));
+      }
+    }
+
+    function goToDiagnostic() {
+      goToLoadingDiagnostic();
+    }
+  </script>
+
+  <!-- Keyframes CSS para a linha de scanner fictícia -->
+  <style>
+    @keyframes scan {
+      0% { top: 0%; }
+      50% { top: 100%; }
+      100% { top: 0%; }
+    }
+  </style>
+
+</body>
+</html>
