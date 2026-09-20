@@ -398,8 +398,20 @@ React keys must be passed directly to JSX without using spread:
 @media(prefers-reduced-motion:reduce){.quiz-proof-track{animation:none}.quiz-proof-window{overflow-x:auto}.quiz-proof-group[aria-hidden=true]{display:none}}
 </style><style id="cost-comparison-style">
 .comparison-section{margin-top:32px;padding:28px 20px;background:linear-gradient(145deg,#fff7f8,#fff);border:1px solid #fecdd3;border-radius:30px}.comparison-heading{text-align:center;margin-bottom:22px}.comparison-heading p{font-size:11px;font-weight:800;letter-spacing:.16em;color:#e11d48;margin:0 0 8px}.comparison-heading h2{font-size:23px;line-height:1.15;font-weight:800;color:#18181b;margin:0}.comparison-heading span{display:block;color:#71717a;font-size:14px;line-height:1.45;margin-top:10px}.comparison-grid{display:grid;gap:14px}.comparison-card{position:relative;background:#fff;border:1px solid #e4e4e7;border-radius:20px;padding:18px;box-shadow:0 8px 20px rgba(24,24,27,.05)}.comparison-icon{font-size:28px;line-height:1;margin-bottom:10px}.comparison-card h3{font-size:17px;line-height:1.2;font-weight:800;color:#27272a;margin:0 0 10px}.comparison-price{display:block;color:#be123c;font-size:19px;line-height:1.2;margin-bottom:12px}.comparison-card ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}.comparison-card li{font-size:13px;line-height:1.45;color:#52525b;padding-left:17px;position:relative}.comparison-card li:before{content:'•';position:absolute;left:2px;color:#fb7185;font-weight:900}.comparison-card--featured{border:2px solid #f43f5e;background:linear-gradient(145deg,#fff,#fff1f2);padding-top:35px;box-shadow:0 12px 28px rgba(244,63,94,.14)}.comparison-card--featured h3,.comparison-card--featured .comparison-price{color:#be123c}.comparison-badge{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);white-space:nowrap;background:#e11d48;color:white;border-radius:999px;padding:7px 12px;font-size:10px;font-weight:900;letter-spacing:.08em}.comparison-product{display:block;width:150px;height:150px;object-fit:contain;margin:0 auto 5px}.comparison-grid{grid-template-columns:minmax(0,1fr)}
-</style></head>
+</style><!-- Meta Pixel: PageView -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('set', 'autoConfig', false, '1386948876316951');
+fbq('init', '1386948876316951');
+fbq('track', 'PageView');
+</script>
+</head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased min-h-screen">
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1386948876316951&amp;ev=PageView&amp;noscript=1"></noscript>
   <div id="root"></div>
 <script>const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!v.src){v.src=v.dataset.src;v.load()}v.play().catch(()=>{})}else{v.pause()}}},{rootMargin:"250px"});const setup=()=>{document.querySelectorAll("video[data-src]:not([data-observed])").forEach(v=>{v.dataset.observed="true";v.poster=v.dataset.src+".webp";io.observe(v)})};new MutationObserver(setup).observe(document.body,{childList:true,subtree:true});setup();</script></body>
 </html>
